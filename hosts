@@ -41,6 +41,7 @@
 # leading 0s:
 
 ## db-[99:101]-node.example.com
+#Remote Server
 [controller]
 192.168.10.11
 
@@ -51,14 +52,9 @@ ansible_ssh_pass=vagrant
 "hosts" 50L, 1132C       
 
 
-[controller]
-192.168.10.11
 
-[controller:vars]
-ansible_connection=ssh
-ansible_user=vagrant
-ansible_ssh_pass=vagrant
 
+#Main server
 [ubuntu]
 192.168.10.20
 
