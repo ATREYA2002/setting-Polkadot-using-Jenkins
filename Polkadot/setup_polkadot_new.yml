@@ -1,0 +1,48 @@
+---
+- name: Set up Polkadot full node on controller server
+  hosts: controller
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install required packages
+      apt:
+        name:
+          - curl
+        state: present
+
+    - name: Download and install Polkadot node
+      shell: |
+        curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/paritytech/polkadot-sdk/master/scripts/getting-started.sh | bash
+      args:
+        creates: /usr/local/bin/polkadot
+
+    - name: Create systemd service file for Polkadot
+      copy:
+        dest: /etc/systemd/system/polkadot.service
+        content: |
+          [Unit]
+          Description=Polkadot Node
+          After=network.target
+
+          [Service]
+          ExecStart=/usr/local/bin/polkadot --chain kusama
+          Restart=on-failure
+          User=polkadot
+
+          [Install]
+          WantedBy=multi-user.target
+      notify:
+        - Reload systemd
+
+    - name: Start Polkadot node service
+      systemd:
+        name: polkadot
+        state: started
+        enabled: yes
+
+    - name: Wait for Polkadot node to start
+      pause:
+        seconds: 60
