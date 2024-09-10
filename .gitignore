@@ -1,1 +1,2 @@
+####To avoid commiting changes we add vagrant related files that are machine-specific data like private keys, which are usually not meant to be version-controlled in one group
 .vagrant/
