@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
   config.vm.box_check_update = false
 
 
-  # Master node where ansible will be installed
+  # Remote server they receive instructions from the control node and execute tasks as specified in the ansible playbooks
   config.vm.define "controller" do |controller|
     controller.vm.box = "geerlingguy/ubuntu2004"
     controller.vm.hostname = "controller.crudsinfotech.com"
@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  # Managed node 1.
+  # Master/Main server where ansible will be installed
   config.vm.define "ubuntu1" do |ubuntu1|
     ubuntu1.vm.box = "geerlingguy/ubuntu2004"
     ubuntu1.vm.hostname = "ubuntu1.crudsinfotech.com"
