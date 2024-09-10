@@ -1,7 +1,7 @@
-Setting up True Node PolkaDot
+#**Setting up True Node PolkaDot**
 
 
-For Windows:
+##For Windows:
 Installing WSL and Ubuntu: Begin with installing the Windows Subsystem for Linux (WSL) and Ubuntu on your system.
 Downloading the Polkadot Binary: After that, ensure you have the latest Polkadot binary. Use this command, replacing VERSION with the latest version number:
 curl -sL https://github.com/paritytech/polkadot/releases/download/*VERSION*/polkadot -o polkadot
@@ -28,7 +28,7 @@ cargo build –release
 Running an Archive Node (optional): If you want to retain the full history of the blockchain state, you can run an archive node with this command:
 ./target/release/Polkadot –name “Your Node’s Name” –pruning archive
 
-For macOS:
+##For macOS:
 Installing Homebrew: Open the terminal and enter this command to install Homebrew:
 /bin/bash -c “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)”
 
@@ -53,7 +53,7 @@ Running the Node: Start your node using this command:
 Running an Archive Node (optional): If you wish, you can run an archive node:
 ./target/release/Polkadot –name “Your Node’s Name” –pruning archive
 
-For Linux:
+##For Linux:
 Downloading the Polkadot Binary: Make sure you have the latest Polkadot binary. Download it with this command:
 curl -sL https://github.com/paritytech/polkadot/releases/download/*VERSION*/polkadot -o polkadot
 
