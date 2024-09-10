@@ -1,4 +1,4 @@
-# **Setting up True Node PolkaDot**
+# **Setting up Full Node in PolkaDot**
 
 
 ## For Windows:
